@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Football League</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+    select, input, button { padding: 5px; font-size: 16px; }
+    input[type="number"] { width: 40px; }
+    h1, h2 { margin-top: 40px; }
+
+    body.dark { background-color: #121212; color: #f1f1f1; }
+    body.dark table { border-color: #444; }
+    body.dark th, body.dark td { border: 1px solid #444; background-color: #1e1e1e; color: #ddd; }
+    body.dark input, body.dark select, body.dark button { background-color: #333; color: #fff; border: 1px solid #666; }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr { display: block; }
+      thead { display: none; }
+      td { position: relative; padding-left: 50%; border: none; border-bottom: 1px solid #ccc; }
+      td::before {
+        position: absolute; top: 8px; left: 10px; width: 45%; white-space: nowrap;
+        font-weight: bold; content: attr(data-label);
+      }
+      table { margin-bottom: 20px; }
+      input[type="number"], input[type="text"] { width: 100%; box-sizing: border-box; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Football League Fixtures</h1>
+  <button onclick="toggleDarkMode()" id="darkModeBtn">Toggle Dark Mode</button>
+
+  <label for="team-filter">Filter by Team:</label>
+  <select id="team-filter" onchange="renderFixtures()">
+    <option value="all">All Teams</option>
+  </select>
+
+  <label for="matchweek-select">Select Matchweek:</label>
+  <select id="matchweek-select" onchange="renderFixtures()"></select>
+
+  <table id="fixtures-table">
+    <thead>
+      <tr>
+        <th>#</th><th>Home</th><th></th><th>Away</th><th>Score</th><th>Action</th><th>Status</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <button onclick="resetLeague()">Reset All Data</button>
+
+  <h2>League Standings</h2>
+  <input type="text" id="standings-search" placeholder="Search team..." oninput="filterStandings()" style="padding: 6px; margin-bottom: 10px; width: 100%; max-width: 300px; font-size: 16px;">
+  <table id="standings-table">
+    <thead>
+      <tr>
+        <th>Pos</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th>
+        <th>GF</th><th>GA</th><th>GD</th><th>Pts</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>Top Scorers</h2>
+  <table id="scorers-table">
+    <thead>
+      <tr><th>Pos</th><th>Player</th><th>Goals</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>Export Data</h2>
+  <button onclick="downloadCSV('fixtures')">Download Fixtures</button>
+  <button onclick="downloadCSV('standings')">Download Standings</button>
+  <button onclick="downloadCSV('topScorers')">Download Top Scorers</button>
+
+  <h2>Simulation</h2>
+  <button onclick="simulateAll()">Simulate All Matches</button>
+
+<script>
+// Placeholder for full JS content
+document.body.innerHTML += '<p style="color: red">JavaScript functionality will be included in the full zip.</p>';
+</script>
+</body>
+</html>
